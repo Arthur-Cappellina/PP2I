@@ -1,0 +1,198 @@
+CREATE TABLE User(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT NOT NULL, 
+    pseudo TEXT NOT NULL, password TEXT NOT NULL,status VARCHAR(255), 
+    imageProfil VARCHAR(255),
+    typeCompte VARCHAR(255),
+    idLocation INTEGER,
+    FOREIGN KEY(idLocation) REFERENCES locations(idLocation)
+);
+
+CREATE TABLE Produit(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    typeProduit VARCHAR(255), 
+    prix REAL, 
+    quantite INTEGER, 
+    description TEXT, 
+    idHeure INTEGER, 
+    idImage INTEGER, 
+    name VARCHAR(255),
+    FOREIGN KEY(idImage) REFERENCES ImageProduit(idImageProduit), 
+    FOREIGN KEY(idHeure) REFERENCES Horaires(idHeure)
+);
+
+CREATE TABLE COMMANDE(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    idProduit INTEGER, 
+    buyerId INTEGER,
+    quantite INTEGER, 
+    dateReservation DATE, 
+    FOREIGN KEY(idProduit) REFERENCES Produit(id),
+    FOREIGN KEY(buyerId) REFERENCES User(id)
+);
+
+CREATE TABLE ProduitMicroFerme(
+    idProduit INTEGER NOT NULL, 
+    idMicroFerme INTEGER NOT NULL, 
+    quantite INTEGER, 
+    PRIMARY KEY(idProduit, idMicroFerme), 
+    FOREIGN KEY(idProduit) REFERENCES Produit(id), 
+    FOREIGN KEY(idMicroFerme) REFERENCES MicroFerme(id) 
+); 
+
+CREATE TABLE ProduitJardinsPartages(
+    idProduit INTEGER NOT NULL, 
+    idJardin INTEGER NOT NULL, 
+    quantite INTEGER, 
+    PRIMARY KEY(idProduit, idJardin), 
+    FOREIGN KEY(idProduit) REFERENCES Produit(id), 
+    FOREIGN KEY(idJardin) REFERENCES JardinPartage(id) 
+); 
+
+CREATE TABLE ProduitUser(
+    idProduit INTEGER NOT NULL, 
+    idUser INTEGER NOT NULL, 
+    quantite INTEGER, 
+    PRIMARY KEY(idProduit, idUser), 
+    FOREIGN KEY(idProduit) REFERENCES Produit(id), 
+    FOREIGN KEY(idUser) REFERENCES User(id) 
+); 
+
+CREATE TABLE CommentaireUser(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    commentateurId INTEGER,
+    userId INTEGER,
+    content TEXT,
+    note INTEGER, 
+    FOREIGN KEY(commentateurId) REFERENCES User(id), 
+    FOREIGN KEY(userId) REFERENCES User(id)
+);
+
+CREATE TABLE JardinPartage(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    ownerId INTEGER,
+    link VARCHAR(255),
+    image VARCHAR(255),
+    name VARCHAR(255),
+    description TEXT,
+    idLocation INTEGER,
+    FOREIGN KEY(idLocation) REFERENCES locations(idLocation),
+    FOREIGN KEY(ownerId) REFERENCES User(id)
+);
+
+CREATE TABLE ParticipationJardinPartage(
+    idJardin INTEGER, 
+    userId INTEGER,
+    FOREIGN KEY(idJardin) REFERENCES JardinPartage(id),
+    FOREIGN KEY(userId) REFERENCES User(id), 
+    PRIMARY KEY (idJardin,userId)
+);
+
+CREATE TABLE MicroFerme(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    nom VARCHAR(255), 
+    description TEXT,
+    idLocation INTEGER, 
+    ownerId INTEGER,
+    FOREIGN KEY(idLocation) REFERENCES locations(idLocation)
+    FOREIGN KEY (idImageFerme) REFERENCES MicroFerme (idImageFerme)
+);
+
+CREATE TABLE AMAP(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    link TEXT,
+    description TEXT, 
+    image varchar(255), 
+    nom_amap VARCHAR(255), 
+    idLocation INTEGER,
+    FOREIGN KEY(idLocation) REFERENCES locations(idLocation)
+);
+
+CREATE TABLE ImageJardin(
+    idImageJardin INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    idJardin INTEGER,
+    Path varchar(255),
+    FOREIGN KEY(idJardin) REFERENCES JardinPartage(id)
+);
+
+CREATE TABLE ImageAMAP(
+    idImageAmap INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    idAmap INTEGER,
+    Path VARCHAR(255),
+    FOREIGN KEY(idAmap) REFERENCES AMAP(idAmap)
+);
+
+CREATE TABLE ImageProduit(
+    idImageProduit INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    idProduit INTEGER, 
+    Path VARCHAR(255),	
+    FOREIGN KEY(idProduit) REFERENCES Produit(id)
+);
+
+CREATE TABLE ImageFerme( 
+    idImageFerme INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    idFerme INTEGER, 
+    Path VARCHAR(255), 
+    FOREIGN KEY(idFerme) REFERENCES MicroFerme(idMicroFerme)
+);
+
+CREATE TABLE Horaires(
+    idHeure INTEGER PRIMARY KEY AUTOINCREMENT, 
+    dateHeures DATE
+);
+
+CREATE TABLE locations(
+    idLocation INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    adresse VARCHAR(255),
+    latitude REAL,
+    longitude REAL
+);
+
+CREATE TABLE Graine(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    nom VARCHAR(255),
+    debut_plantation INTEGER, 
+    fin_plantation INTEGER, 
+    image VARCHAR(255)
+);
+
+
+
+# Exemples 
+INSERT INTO user VALUES (?, "a@a.com", "pseudo", "V873acdra!", "independant", "2 rue Stanislas", "./profile.png"); 
+
+INSERT INTO produit VALUES (?, "fruits", 8.2, 5, 1, "Des fraises", 1, 1); 
+INSERT INTO produit VALUES (?, "fruits", 5, 12, "Des pommes", 1, 1); 
+INSERT INTO produit VALUES (?, "fruits", 2, 12, "Des cerises", 2, 5);      
+INSERT INTO produit VALUES (?, "fruits", 2.2, 50, "Des peches", 3, 3);  
+INSERT INTO produit VALUES (?, "légumes", 7.2, 10, "Des tomates", 3, 3);  
+INSERT INTO produit VALUES (?, "légumes", 1.2, 8, "Des salades", 3, 3);  
+
+INSERT INTO produitmicroferme values(2, 1);
+
+INSERT INTO produitUser values(3, 1, 8, '19/12/2022');
+INSERT INTO produitUser values(5, 1, 8, '19/12/2022');
+
+INSERT INTO ProduitJardinsPartages values(5, 1, 8, '19/12/2022');
+INSERT INTO ProduitJardinsPartages values(2, 1, 8, '19/12/2022');
+
+INSERT INTO commande VALUES (?, 1, 1, 1, 2, '15/12/2022'); 
+INSERT INTO CommentaireUser values (?, 1, 1, "Très belles tomates", 8);
+INSERT INTO jardinpartage values (?, 1, "https://google.com", "./image.png");
+INSERT INTO participationjardinpartage values (1, 1); 
+INSERT INTO microferme values (?, "8 rue jean jaures", "Des produits super frais", "ferme ! "); 
+INSERT INTO microferme values (?, "8 rue jean pierre", "Des produits super frais", "Ferme 2 !"); 
+INSERT INTO amap values (?, "https://google.com", "description amap", "./image.png", "AMAP");
+INSERT INTO imagejardin values (?, 1, "./image.png");
+INSERT INTO imageamap values (?, 1, "./image.png");
+INSERT INTO imageproduit values (?, 1, "./image.png");
+INSERT INTO imageferme values (?, 1, "./image.png");
+INSERT INTO imageferme values (?, 1, "./jardin-1.png");
+INSERT INTO imageferme values (?, 1, "./jardin-2.png");
+INSERT INTO imageferme values (?, 1, "./jardin-3.png");
+INSERT INTO horaires values (?, datetime('now','localtime'));
+
+insert into locations values (?, "Pl. Stanislas, 54000 Nancy",  48.693829, 6.182534);
+insert into locations values (?, "Telecom Nancy", 48.6681779939, 6.15308398766);  
+insert into locations values (?, "Paris", 48.866667,  2.333333);  
+insert into locations values (?, "Mairie Laxou", 48.68333,  6.150000);  
+insert into locations values (?, "Maxéville", 48.7167,  6.61667);  

@@ -1,0 +1,41 @@
+{% extends 'basic_template.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+{% endblock %}
+{% block title %}Mon compte{% endblock %}
+{% block content %}
+    <div class="content-parent">
+        <div class="left-side">
+            <a href="/mon-compte">Mes informations</a>
+            <a href="/proposition">Proposer un Produit</a>
+            <a href="/compte">Paramètres du compte</a>
+            <a href="#">Conditions Générales d'utilisation</a>
+            <a href="/vos-produits">Mes Produits</a>
+            <a href="/cagnotte">Ajouter des ducky à ma cagnotte</a>
+            <a href="/creer-jardin">Créer un jardin partagé</a>
+            <a href="/creer-ferme">Créer une micro ferme</a>
+            <a href="/commande">Voir mes commandes</a>
+            {% if status == 'admin' %}
+            <a href="/admin">Admin</a>
+            {% endif %}
+            <a href="/mon-compte?query=deconnexion" class="btn-primary">Déconnexion</a>
+        </div>
+        <div class="right-side">
+            {% if data.image is not defined: %}
+                <img src="{{ url_for('static', filename=data['image']) }}" alt="" class="profil-img">
+            {% else: %}
+                <img src="/static/img/user.png" alt="" class="profil-img">
+            {% endif %}
+            <h3>{{data["pseudo"]}}</h3>
+            <p><span class="black">Email :</span> {{data["email"]}}</p>
+            <p><span class="black">Adresse postale :</span> {{data["adresse"]}}</p>
+            <p><span class="black">Status :</span>{{status}}</p>
+            <p><span class="black">Produits sauvés :</span> {{save}}</p>
+            <p><span class="black">Produits vendus ou donnés :</span> {{given}}</p>
+            <p><span class="black">Ma cagnotte : </span>{{data["cagnotte"]}} ducky</p>
+
+        </div>
+    </div>
+{% endblock %}
+
+

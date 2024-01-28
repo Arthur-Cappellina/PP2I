@@ -1,0 +1,43 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/panier.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
+{% endblock %}
+{% block title %} Mon panier {% endblock %} 
+{% block content %}
+    <section>
+        {% if data.products|length > 0: %}
+            <h1>Récapitulatif de votre panier</h1>
+            <div class="panier-content">
+                <div class="panier-products">
+                    {% for p in data.products %}
+                        <div class="current-product-parent">
+                            <img src="{{ url_for('static', filename=p.img) }}" alt="">
+                            <div class="all-text">
+                                <div class="current-product">
+                                    <p class="name">{{p.name}}</p>
+                                    <p class="desc">{{p.desc}}</p>
+                                    <p>Prix à l'unité : {{p.price}}ducky</p>
+                                    <p>Quantité souhaitée : {{p.quantity}}</p>
+                                </div>
+                                <div class="total-price">
+                                    <a href="/panier?delete={{p.id}}"><i class="mdi mdi-delete-outline"></i></a>
+                                    <p><strong>{{p.price * p.quantity}} ducky</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="sum">
+                        <p><strong>TOTAL : </strong> {{data.total}}€</p>
+                    </div>
+                </div>
+                <form action="/panier" method="post">
+                    <button type="submit" class="submit">Commander</button>
+                </form>
+            </div>
+        {% else: %}
+            <h1>Votre panier est vide</h1>
+        {% endif %}
+    </section>
+{% endblock %}

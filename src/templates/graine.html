@@ -1,0 +1,49 @@
+{% extends 'basic_template.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/graine.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block graines %}navigation-bar-menu-element-current{% endblock %}
+{% block title %}Les Graines à planter dans mon potager{% endblock %}
+{% block content %}
+<div class='sous-titre'>
+    <h2>Cette page vous aide à trouver quelles graines planter en fonction de là où vous habitez et de la période que vous choisissez</h2>
+</div>
+<div class ="form">
+    <form action="/graine" method='POST' class='first'>
+        <label for="month-selection" style="margin-left: 40px;">Choisissez votre période</label>
+            <select name='graine' id="graine_plant">
+                <option value="">Choisissez votre période</option>
+                <option value="Janvier">Janvier</option>
+                <option value="Février">Février</option>
+                <option value="Mars">Mars</option>
+                <option value="Avril">Avril</option>
+                <option value="Mai">Mai</option>
+                <option value="Juin">Juin</option>
+                <option value="Juillet">Juillet</option>
+                <option value="Août">Août</option>
+                <option value="Septembre">Septembre</option>
+                <option value="Octobre">Octobre</option>
+                <option value="Novembre">Novembre</option>
+                <option value="Décembre">Décembre</option>
+            </select>
+            <input type="submit" value="Rechercher les graines !" class="submit">
+    </form>
+</div>
+<div class="periode">
+    <h2>Les graines que vous pouvez planter en {{ mois }}</h2>
+</div>
+<div class="container">
+    {% for item in data %}
+        <div class="legumes">
+            <div class="legumes-img">
+                <img src="{{url_for ('static', filename=item[1]) }}" class="img">
+            </div>
+            <div class="dessous">
+                <label for='nom'><h4 class='titre'>{{ item[0] }}</h4></label>
+                <input type="hidden" name="id-amap" value="{{ item[0] }}">
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

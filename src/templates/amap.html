@@ -1,0 +1,29 @@
+{% extends 'basic_template.html'%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/amap.css') }}">
+{% endblock %}
+{% block title %}AMAP{% endblock %}
+{% block amap %}navigation-bar-menu-element-current{% endblock %}
+{% block content %}    
+        <section class="title">
+            <h2>Vous pouvez trouvez ci-dessous les AMAP proches de chez vous</h2>
+        </section>
+        <div class="toutes_amap">
+            {% for item in data %}
+                <div class="amap">
+                    <a href="/amap/{{item[0]}}">
+                        <div class="inner-amap">
+                            <div class="image-parent">
+                                <img src="{{url_for ('static', filename=item[3]) }}" class="img">
+                            </div>
+                                <div class="dessous">
+                                    <label for='nom'><h4 class='titre'>{{ item[4] }}</h4></label>
+                                    <input type="hidden" name="id-amap" value="{{ item[0] }}">
+                                    <p>A {{item[11]}} km de chez vous</p>
+                                </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}

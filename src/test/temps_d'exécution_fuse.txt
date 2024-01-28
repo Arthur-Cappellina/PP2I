@@ -1,0 +1,16 @@
+Test 1 : temps d’exécution : 0 s
+Test 2 : temps d’exécution : 0 s
+Test 3  : temps d’exécution : 0 s
+Test 4  : temps d’exécution : 0 s
+Test 5 : temps d’exécution : 0 s
+test 6 : temps d'exécution : 0 s
+Test 7 : temps d’exécution : 0.0019040107727050781 s -> 75 itérations
+Test 8 : temps d’exécution : 0.002855539321899414 s -> 100 itérations
+Test 9 : temps d’exécution : 0.003902912139892578 s -> 125 itérations
+Test 10 : temps d’exécution : 0.0060007572174072266 s -> 250 itérations
+Test 11 : temps d’exécution : 0.007376432418823242 s -> 500 itérations
+Test 12: Temps d’exécution :  0.014923095703125 s -> 1000 itérations
+Test 13 : temps d’exécution : 0.040721893310546875 s -> 2500 itérations
+Test 14 : temps d’exécution : 0.08121752738952637 s   -> 5000 itérations
+Test 15 : temps d’exécution : 0.16489458084106445 s -> 10000 itérations
+Test 16 : temps d’exécution : 0.3091254234313965 s -> 20000 itérations

@@ -1,0 +1,25 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inscription_connexion.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %} Connexion {% endblock %}
+{% block content %}
+    <title>Connexion</title>
+    <h3 class="section-title">Bienvenue sur potagix !</h3>
+    <h2> Se connecter à Potagix </h2>
+
+    {% if msg==1 %}
+        <div id="erreur">Le pseudo ou le mot de passe est incorrect.</div>
+    {% endif %}
+
+    <form action="/connexion" method="post" class="connexion">
+        <div class="inner-form">
+            <input type="text" name="pseudo" placeholder="Pseudo">
+        </div>
+        <div class="inner-form">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <input type="submit" value="Se connecter" class="submit">
+    </form>
+{% endblock %}

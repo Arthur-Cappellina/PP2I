@@ -1,0 +1,62 @@
+{% extends 'basic_template.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/proposition.css') }}">
+{% endblock %}
+{% block title %}Proposez votre produit{% endblock %}
+{% block content %}
+<form action="/proposition" method="POST" enctype = "multipart/form-data">
+    <h2>Proposez un produit</h2>
+    <div class = 'container'>
+        <div class="inner-form">
+            <label for='name'>Quel est le nom de votre produit : </label>
+            <input type="text" name = "nom_produit" id = "nom_produit">
+        </div>
+        <div class="inner-form">
+            <label for="img-prod">Choisissez votre produit : </label>
+            <input type="file" name="file" id="file">
+        </div>
+        <div class="inner-form">
+            <p>Quel est le type de produit : </p>
+            <input type="radio" name="Btn" id="Btn-lg" value="légume" checked>
+            <label for="bouton">Légume</label>
+            <input type="radio" name="Btn" id="Btn-fr" value="fruit">
+            <label for="bouton">Fruit</label>
+        </div>
+        <div class="inner-form">
+            <label> Qui va vendre le produit : </label>
+            <input type="radio" name="Btn2" id="Btn-perso" value="particulier" checked>
+            <label for="bouton">Particulier</label>
+            <input type="radio" name="Btn2" id="Btn-Micro" value="Micro Ferme">
+            <label for="bouton">Micro Ferme</label>
+            <input type="radio" name="Btn2" id="Btn-Jardin" value="Jardin Partagé">
+            <label for="bouton">Jardin Partagé</label>
+        </div>
+        <div class="inner-form">
+            <label for='quantite'>Rentrez la quantité (unitaire) de votre produit : </label>
+            <input type="number" name="quantite" min = "0" value='0'>
+        </div>
+        <div class='inner-form'>
+            <label for='prix'>Prix : </label>
+            <input type='number' name='prix' min="0" value="0">
+        </div>
+        <div class="inner-form">
+            <label for="description">Ajoutez une description : </label>
+            <textarea name="description" id="description" placeholder="Vous pouvez mettre ici la quantité du produit" required></textarea>
+        </div>
+        <div class='inner-form-dispo'>
+            <label for='date'>Quand êtes vous disponible ?</label>
+            <input type="date" name="schedule" id="Schedule">
+            <label for="debut">Quand la collecte peut-elle commencer ?</label>
+            <input type="text" name="debut" placeholder="Remplir sous la forme **h**. Exemple : 15h30">
+            <label for="fin">Quand la collecte se termine-t-elle ?</label>
+            <input type = "text" name='fin' placeholder='Remplir sous la forme **h**. Exemple : 16h45'>
+        </div>
+        <input type="submit" value="Envoyez !" class='submit'>
+    </div>
+</form>
+<div>
+    <h3>Votre demande sera examinée par un des admins. Pensez à remplir tout ce qui vous est demandé</h3>
+    <h4> Les achats sur ce site se font en ducky. Un ducky vaut 1 euros. </h4>
+</div>
+{% endblock %}

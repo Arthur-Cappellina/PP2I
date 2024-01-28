@@ -1,0 +1,35 @@
+{% extends 'basic_template.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/commande.css') }}">
+{% endblock %}
+{% block title %}Mes commandes{% endblock %}
+{% block content %}
+    <div class="produit-parent">
+        {% for item  in data %}
+            <div class="produit">
+                <h3 class='titre'>{{item[7]}}</h3>
+                <img src="{{url_for ('static', filename=item[3]) }}" class="img">
+                <div class="dessous">
+                    <p class="seller">Produit vendu par {{item[10]}} </p>
+                    <p><span class="categ">Prix : </span> {{item[1]}} ducky</p>
+                    <p><span class="categ">Description : </span> {{item[2]}}</p>
+                    <p><span class="categ">Quantité : </span> {{item[8]}}
+                    <p class="categ"> La collecte est le {{item[4]}}</p>
+                    <p class="categ"> Elle commence à {{item[5]}} et se termine à {{item[6]}}</p>
+                    <p class="categ">Le produit est à récupérer au {{item[12]}} </p>
+                    <form action="/commande" method = 'POST'>
+                        <div class='validation'>
+                            <input type='radio' name='Btn' value ='ok'>
+                            <label for="bouton">Produit récupéré</label>
+                            <input type="hidden" name="id-prod" value="{{item[9]}}">
+                        </div>
+                        <div class="submit-parent">
+                            <input type="submit" value="Validé!" class='submit'>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}    

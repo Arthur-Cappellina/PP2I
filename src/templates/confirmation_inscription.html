@@ -1,0 +1,23 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/accueil.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inscription_connexion.css') }}">
+{% endblock %}
+{% block title %} Confirmation inscription {% endblock %}
+{% block content %}
+
+    <h1>Bienvenue sur potagix !</h1>
+    <p> Un mail de confirmation été envoyé. Veuillez rentrer le code reçu par mail.</p>
+
+    {% if msg==2 %}
+        <div id="erreur">Le code est incorrect.</div>
+    {% endif %}
+    
+    <form action="/confirmation-inscription" method="post" style="width: 80%; display: flex !important; flex-direction: row !important; flex-wrap: nowrap; justify-content: center; align-items: center;">
+        <label for="number">Code à 6 chiffres :</label>
+        <input type="text" name="number" style="width: 25%; margin: 0; margin-left: 20px;">
+        <input type="submit" value="Envoyer" class="submit" style="width: auto; margin: 0; margin-left: 20px;">
+    </form>
+
+{% endblock %}

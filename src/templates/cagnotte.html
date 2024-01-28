@@ -1,0 +1,39 @@
+{% extends 'basic_template.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/produit.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cagnotte.css') }}">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" defer>
+        $(document).ready(function() {
+            $("#less-quantity-id").click(function(){
+                var quantity = $(".quantity-text").val();
+                if (quantity > 1) {
+                    quantity--;
+                    $(".quantity-text").val(quantity);
+                }
+            });
+            $("#more-quantity-id").click(function(){
+                var quantity = $(".quantity-text").val();
+                quantity++;
+                $(".quantity-text").val(quantity);
+            });
+        });
+    </script>
+{% endblock %}
+{% block title %}Remplir ma cagnotte{% endblock %}
+{% block content %}
+<form action="/cagnotte" method="POST">
+    <h2>Veuillez saisir le montant que vous voulez ajouter à votre cagnotte</h2>
+    <div class="montant">
+        <div class="update-quantity">
+            <button class="less-quantity" id="less-quantity-id" type="button">-</button>
+            <input class="quantity-text" value="1" name="solde">
+            <button class="more-quantity" id="more-quantity-id" type="button">+</button>
+        </div>
+        <input type="submit" value="Ajouter" class="submit">
+    </div>
+    <p> Votre demande sera examinée par un des admin du site
+    <br> Les achats sur ce site se font en ducky. Un ducky vaut 1 euros. </p>
+</form>
+{% endblock %}    

@@ -1,0 +1,61 @@
+p { text-align: center }
+a { text-align: center;
+    color: blue
+}
+h1 { text-align: center }
+h2 { text-align: center }
+label
+{
+	display: block;
+}
+
+#form {    
+    text-align: center;  
+}
+
+#erreur {
+    text-align: center;
+    color: red;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.inner-form {
+    display: flex;
+    flex-direction: row;
+    padding: 0 15px;
+    width: 50%;
+}
+
+input {
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    height: 50px;
+    width: 100%;
+    background: none;
+    padding: 0px 20px;
+    color: #222222;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.submit {
+    width: 20%;
+}
+
+.connexion {
+    display: flex;
+    flex-direction: column;
+}
+
+

@@ -1,0 +1,53 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/produit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" defer>
+        $(document).ready(function() {
+            max = $(".remaining").text().split(" ")[3];
+            $("#less-quantity-id").click(function(){
+                var quantity = $(".quantity-text").val();
+                if (quantity > 1) {
+                    quantity--;
+                    $(".quantity-text").val(quantity);
+                }
+            });
+            $("#more-quantity-id").click(function(){
+                var quantity = $(".quantity-text").val();
+                if (quantity < parseInt(max)) {
+                    quantity++;
+                    $(".quantity-text").val(quantity);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block title %} {{data.title}} {% endblock %}
+{% block content %}
+    <section>
+        <div class="produit">
+            <div class="produit-image">
+                <img src="{{ url_for('static', filename=data.image[0]) }}" alt="image du produit">
+            </div>
+            <div class="produit-description">
+                <h1>{{data.title}}</h1>
+                <p class="propose">Proposé par : <a href="{{data.vendeur.link}}">{{data.vendeur.name}}</a></p>
+                <span class="separator"></span>
+                <p class="price">{{data.price}}ducky</p>
+                <p class="desc">{{data.description}}</p>
+                <p class="categ"><strong>Catégorie : </strong> {{ data.category }}</p>
+                <p class="remaining"><strong>Quantité restante :</strong> {{ data.quantity }}</p>
+                <form action="/produit/{{data.id}}" method="post">
+                    <label for="quantity">Quantité</label>
+                    <div class="update-quantity">
+                        <button class="less-quantity" id="less-quantity-id" type="button">-</button>
+                        <input class="quantity-text" value="1" name="quantity">
+                        <button class="more-quantity" id="more-quantity-id" type="button">+</button>
+                    </div>
+                    <button type="submit" value="Acheter" class="submit">Ajouter au panier</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

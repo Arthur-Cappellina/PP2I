@@ -1,0 +1,36 @@
+{% extends 'basic_template.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vosprod.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %}Vos Produits{% endblock %}
+{% block content %}
+<form action="/vos-produits" method="POST">
+    <label for="choix-structure" style="display:flex;justify-content:center;">Choisissez les produits que vous voulez voir : </label>
+    <div class="Btn">
+        <input type="radio" name="Btn" value="particulier" checked>
+        <label for="bouton">Vos produits personnels</label>
+        <input type="radio" name="Btn" value="Jardin Partagé">
+        <label for="bouton">Produits de votre Jardin Partagé</label>
+        <input type="radio" name="Btn" value="Micro Ferme">
+        <label for="bouton">Produits de votre Micro Ferme</label>
+    </div>
+    <input type="submit" value="Voir mes produits !" class="submit">
+</form>
+<div class="tout-produit">
+    {% for item in data %}
+        <div class="produit">
+            <title>{{ item[0] }}</title>
+            <img src="{{url_for ('static', filename=item[3]) }}" class="img">
+            <div class="dessous">
+                <label for='nom'><h4 class='titre'>{{ item[2] }}</h4></label>
+                <p>nom du produit : {{item[7]}}</p>
+                <p>Quantite : {{item[8]}}</p>
+                <p> prix : {{item[1]}} ducky</p>
+                <p> La collecte est le {{item[4]}}</p>
+                <p> Elle commence à {{item[5]}} et se termine à {{item[6]}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

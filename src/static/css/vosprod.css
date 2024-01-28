@@ -1,0 +1,63 @@
+form{
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 1000px;
+    height: 100px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: black;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+}
+
+.Btn{
+    display: flex;
+    justify-content: center;
+}
+
+.titre {
+    text-align: center;
+}
+.choix-structure{
+    display: flex;
+    justify-content: center;
+}
+
+.produit p{
+    color: black;
+    text-align: center;
+}
+
+.produit button {
+    width: 475px;
+    height: 450px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0px 2px 5px #0004;
+}
+
+.tout-produit {
+    display: flex;
+    flex-direction: row;
+}
+
+.produit {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 2px 5px #0004;
+    border-radius: 30px;
+    margin-left: 25px;
+    padding: 30px;
+}
+
+.img{
+    width:250px;
+    display: flex;
+    margin: auto;
+}

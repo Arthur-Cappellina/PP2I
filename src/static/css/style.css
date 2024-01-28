@@ -1,0 +1,41 @@
+/* 
+* Optional: Makes the sample page fill the window. 
+*/
+html, body {
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.submit {
+    height: 50px;
+    line-height: 50px;
+    border: none;
+    background: #AF9666;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 25px;
+    padding: 0 60px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 50px;
+    line-height: 1;
+    z-index: 1;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-family: Roboto Slab, sans-serif;
+    color: #333;
+    margin: 0;
+    font-weight: 400;
+}

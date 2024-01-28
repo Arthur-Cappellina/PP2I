@@ -1,0 +1,47 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/informations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %} {{data.type}} {% endblock %}
+{% block content %}
+    <section>
+        <div class="top-content">
+            <div class="content-image">
+                {% if data.image == None or data.image == null: %}
+                    <img src="{{url_for ('static', filename='img/avatar.png')}}" alt="Image du produit">
+                {% else: %}
+                    <img src="{{ url_for('static', filename=data.image) }}" alt="image du produit">
+                {% endif %}
+            </div>
+            <div class="content-description">
+                <h1>{{data.title}}</h1>
+                <span class="separator"></span>
+                <p class="desc">{{data.description}}</p>
+                <p>{{data.adresse}}</p>
+            </div>
+        </div>
+        {% if data.produits|length > 0 %}
+            <h1 class="h1-title">Produits proposés</h1>
+            <div class="product-proposed">
+                {% for p in data.produits %}
+                    <a href="/produit/{{p.id}}" class="current-product">
+                            <div class="titreproduit" ><h1 class="home-inner-text home-inner-title" style="text-align: center;">{{ p.title }}</h1></div>
+                        <div class="product-image-parent">
+                            {% if p.img == None: %}
+                                <img src="{{ url_for('static', filename='img/avatar.png') }}" alt="" srcset="" class="pop-img">
+                            {% else: %}
+                                <img src="{{url_for ('static', filename=p.image)}}" alt="Image du produit">
+                            {% endif %}
+                        </div>
+                        <div class="around-under">
+                            <p><span class="home-inner-text home-inner-type">Type de produit : </span> {{ p.type }}</p>
+                            <p><span class="home-inner-text home-inner-type">Prix : </span> {{ p.prix }}</p>
+                            <p><span class="home-inner-text home-inner-type">Quantité : </span> {{ p.quantite }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

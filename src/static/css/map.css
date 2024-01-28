@@ -1,0 +1,279 @@
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+ #map {
+    height: 100%;
+  }
+  
+  /* 
+   * Optional: Makes the sample page fill the window. 
+   */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  #infowindow-content .title {
+    font-weight: bold;
+  }
+  
+  #infowindow-content {
+    display: none;
+  }
+  
+  #map #infowindow-content {
+    display: inline;
+  }
+  
+ 
+  #title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+  }
+  
+  #target {
+    width: 345px;
+  }
+
+.main-inner{
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+}
+
+aside {
+    width: 30%;
+}
+
+.main-content {
+    width: 70%;
+}
+
+
+.location {
+    display: none;
+}
+
+.pop-img{
+    width: 250px;
+}
+
+main {
+    min-height: 500px;
+}
+
+#map {
+    display: block;
+    height: 100%;  /* The height is 400 pixels */
+    min-height: 600px;
+    width: 100%;  
+    padding: 20px;
+}
+
+
+.left-bar-statut, .sorting-section, .left-bar-featured-products, .featured-product-data { 
+    display: flex;
+    flex-direction: column;
+}
+
+.left-bar-featured-products li, .main-inner, .toolbar, .toolbar-right, .toolbar-left { 
+    display: flex;
+    flex-direction: row;
+}
+
+.left-bar {
+    width: 25%;
+    padding: 15px 15px;
+}
+
+.main-content {
+  margin-top: 10px;
+}
+
+.main-content {
+    width: 75%;
+}
+
+.sorting-section-title { 
+    width: 100%;
+    display: inline-block;
+    font-family: Roboto Slab, sans-serif;
+    color: #000;
+    padding: 0 0 10px;
+    background: 0 0;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0 0 5px;
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.sorting-section {
+    margin-bottom: 30px;
+}
+
+.left-bar-statut{
+    padding: 0;
+    margin: 0;
+}
+
+
+.left-bar-statut-element { 
+    text-decoration: none;
+    font-size: 14px;
+    color: #222222;
+    padding: 10px 0px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+}
+
+.left-bar-statut-element:hover {
+    color: #AF9666;
+}
+
+.left-bar-statut li { 
+    border-bottom: #e5e5e5 solid 1px;
+}
+
+.left-bar-statut li:last-child{
+    border: none;
+}
+
+option:checked{
+    color: #AF9666;
+    background-color: #fff;
+}
+
+.tags, .types {
+    padding: 10px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row !important;
+  }
+
+  
+  .tag, .type{
+  transition: all 400ms ease-in-out; 
+    color: black;
+    display: block;
+    width: max-content;
+    border: 1px solid #eee !important;
+    font-family: Nunito;
+    font-size: 11px;
+    color: #808080;
+    padding: 7px;
+    margin: 4px 0px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.gmap-input {
+  padding: 10px;
+  padding-top: 25px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-map-parent {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+}
+
+.pac-container {
+    top: 50px !important; 
+    left: 0 !important;
+}
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.2rem;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+  margin-bottom: 12px;
+}
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #AF9666, #AF9666);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 0.7rem;
+  color: #AF9666;
+  font-weight: 700;
+}
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.tag:hover, .tag-selected, .type:hover, .type-selected {
+  background-color: #AF9666;
+  color: #fff;  
+}
+
+.gm-style img:hover {
+  transition: 0.2s;
+  scale: 1.2;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+button {
+  margin-top: 30px !important;
+  cursor: pointer;
+}

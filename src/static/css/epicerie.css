@@ -1,0 +1,134 @@
+h1 { text-align: center }
+
+#form {    
+    text-align: center;  
+}
+
+#titreproduit {    
+    text-align: center;  
+}
+
+#erreur {
+    text-align: center;
+    color: red;
+}
+
+label
+{
+	display: block;
+}
+
+.container {
+    display: block;
+    justify-content: center;
+    margin-left:370px ;
+}
+
+.aroundelement {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    min-width: 600px;
+    box-shadow: 0px 2px 5px #0004;
+    border-radius: 30px;
+}
+
+form, .form-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+input {
+    margin: 0 15px;
+}
+
+.elements {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+}
+
+.around-element{
+    width: 20%;
+    margin-left: 5%;
+    margin-top: 30px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+    border-radius: 20px;
+}
+
+.around-element:nth-child(1) {
+    margin-left: 0;
+}
+
+.image-parent{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.image-parent img{
+    max-height: 95%;
+    margin: auto;
+    display: block;
+}
+
+.home-img {
+    border-radius: 0;
+    margin-top: 10px !important;
+}
+
+.home-inner-text {
+    color: rgb(101, 101, 101);
+}
+
+.around-under p{
+    margin: 5px;
+}
+
+h3.section-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 50px;
+    line-height: 1;
+    z-index: 1;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-family: Roboto Slab, sans-serif;
+    color: #333;
+    margin: 0;
+    font-weight: 400;
+}
+
+.form-inner{
+    height: 25px;
+    font-size: 1.2rem;
+}
+
+.submit {
+    height: 35px;
+    line-height: 35px;
+    border: none;
+    background: #AF9666;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 25px;
+    padding: 0 20px;
+}
+

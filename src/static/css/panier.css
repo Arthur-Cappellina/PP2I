@@ -1,0 +1,121 @@
+h1 {
+    text-align: center;
+    color: rgb(46, 46, 46);
+    font-size: 32px;
+}
+
+.panier-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.panier-products {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.panier-products img {
+    min-width: 20%;
+    max-width: 20%;
+    box-shadow: 0px 0px 10px rgb(233, 233, 233);
+}
+
+.current-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:rgb(46, 46, 46);
+}
+
+.current-product-parent{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+.current-product-parent:first-child {
+    border-top: none;
+}
+.current-product-parent:last-child {
+    border-bottom: none;
+}
+
+.current-product p {
+    padding: 10px;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.desc {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+.name {
+    color: black; 
+    font-size: 22px;
+}
+
+.all-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.total-price {
+    color: black;
+    font-size: 22px;
+}
+
+.panier-products{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(233, 233, 233);
+    padding: 20px;
+}
+
+.sum {
+    text-align: right;
+    color: #000;
+    font-size: 18px;
+}
+
+.sum p {
+    margin: 0;
+    padding-top: 20px;
+}
+
+form{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.submit{
+    width: max-content;
+    margin-right: 0 !important;
+    margin-left: auto !important;
+    text-align: left;
+    float: right;
+    cursor: pointer;
+}
+
+.mdi {
+    font-size: 30px;
+    color: rgb(46, 46, 46);
+    width: 30px;
+    height: 30px;
+}
+
+.total-price i {
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+}   

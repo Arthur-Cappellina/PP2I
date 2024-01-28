@@ -1,0 +1,57 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/creer_jardin.css') }}">
+{% endblock %}
+{% block title %} Créer une microferme {% endblock %}
+{% block content %}
+    <h2> Créer une microferme :</h2>
+
+{% if msg == 3 %}
+    <p>Vous devez vous connecter pour accéder à cette fonctionnalité.</p>
+    <p><a href="{{ url_for('connexion') }}" >Se connecter</a></p>
+    <p><a href="{{ url_for('inscription') }}" >S'inscrire</a></p>
+{% elif msg == 4 %}
+    <p>Votre microferme a bien été créé. Cliquer sur le lien pour ajouter des produits à votre microferme :</p>
+    <a href="{{ url_for('vos_produits') }}" ><p>Ajouter des produits</p></a>
+{% elif msg == 6 %}
+    <div id="erreur">Vous possédez déja une microferme.</div>
+{% else %}
+    {% if msg==1 %}
+        <div id="erreur">Veuillez remplir tout les champs du formulaire.</div>
+    {% endif %}
+    {% if msg==2 %}
+    <div id="erreur">Le nom et la description ne doivent pas contenir plus de 256 caractères.</div>
+    {% endif %}
+    {% if msg==5 %}
+    <div id="erreur">Le fichier doit être au format jpeg, png ou jpg.</div>
+    {% endif %}
+    {% if msg==5 %}
+    <div id="erreur">Adresse introuvable.</div>
+    {% endif %}
+    <form action="/creer-ferme" enctype=multipart/form-data method="post">
+        <div class="inner-form">
+            <input type="text" name="name" placeholder="Nom">
+        </div>
+    
+        <div class="inner-form">
+            <input type="text" name="description" placeholder="Description">
+        </div>
+            
+        <div class="inner-form">
+            <input type="text" name="adresse" placeholder="Adresse">
+        </div>
+
+        <div class="inner-form insert">
+            <label for="file" >Image de la microferme :</label>
+            <div class="input-parent">
+                <input type="file" name="file" accept="file/jpeg" class="inputfile" >
+            </div>
+        </div></br>
+    
+        <div class="inner-form">
+            <input type="submit" value="Envoyer" class="submit">
+        </div>
+    </form>
+{% endif %}
+{% endblock %}

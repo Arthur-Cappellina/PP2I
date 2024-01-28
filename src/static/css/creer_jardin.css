@@ -1,0 +1,77 @@
+p { text-align: center }
+a { text-align: center;
+    color: blue
+}
+h1 { text-align: center }
+h2 { text-align: center }
+label
+{
+	display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#erreur {
+    text-align: center;
+    color: red;
+}
+
+.inner-form {
+    display: flex;
+    flex-direction: row;
+    padding: 0 15px;
+    width: 50%;
+}
+
+input {
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    height: 50px;
+    width: 100%;
+    background: none;
+    padding: 0px 20px;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+
+
+.connexion {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputfile{
+    color: #868686;
+    border: none;
+    font-size: 14px;
+    border-radius: 25px;
+    text-align: center;
+    width: max-content;
+    margin: 0;
+    height: max-content;
+    font-weight: 400;
+}
+
+.insert {
+    align-items: center;
+}
+label {
+    width: max-content;
+}
+
+.input-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

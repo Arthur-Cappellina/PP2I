@@ -1,0 +1,81 @@
+.title{
+    color: black;
+}
+
+.def-amap{
+    background: white;
+    position: relative;
+    padding: 50px 0 0px;
+    color: black;
+    margin-top: 15px;
+}
+
+.toutes_amap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.inner-amap {
+    display: flex;
+    flex-direction: column;
+   /* max-width: 40%;
+    min-width: 40%;*/
+    box-shadow: 0px 2px 5px #0004;
+    border-radius: 30px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.a{
+    border-radius: 30px 30px 0 0;
+    height: 250px;
+    cursor: pointer;
+}
+
+.titre{
+    color: black;
+    text-align: center;
+}
+
+.amap p{
+    color: black;
+    text-align: center;
+}
+
+.amap button {
+    width: 150px;
+    height: 250px;
+    padding: 5px;
+}
+
+.amap {
+    width: 22%;
+    margin-left: 2%;
+    min-height: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.amap:nth-child(4n+1){
+    margin-left: 0;
+}
+
+.image-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+.image-parent img{
+    max-height: 100%;
+    min-height: 100%;
+    border-radius: 30px 0 0;
+}
+
+.title h2{
+    color: rgb(29, 29, 29);
+    text-align: center;
+    padding: 10px;
+}

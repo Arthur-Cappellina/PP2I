@@ -1,0 +1,34 @@
+{% extends 'basic_template.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/param_compte.css') }}">
+{% endblock %}
+{% block title %}Paramètres{% endblock %}
+{% block content %}
+<section class="detail_compte">
+    <h2>DETAILS DE MON COMPTE</h2>
+    <div class="name">
+        <a href="/modifier-pseudo"><button><span>Changer de pseudo</span></button></a>
+    </div>
+    <div class="email">
+        <a href="/modifier-email"><button><span>Changer d'adresse mail</span></button></a>
+    </div>
+    <div class='adresse'>
+        <a href="/modifier-adresse"><button><span>Changer d'adresse postale</span></button></a>
+    </div>
+    <div class="pays">
+        <a href="#"><button><span>Pays : France </span></button></a>
+    </div>
+</section>
+<section class="param">
+    <h2>PARAMETRES</h2>
+    <div class="notif">
+        <a href="#"><button><span>Notifications</span></button></a>
+    </div>
+    <div class="confi">
+        <a href="#"><button><span>Confidentialité & autorisations</span></button></a>
+    </div> 
+    <div class="avatar">
+        <a href="/ajout"><button><span>Ajouter une image de profile</span></button></a>
+    </div>
+</section>
+{% endblock %}

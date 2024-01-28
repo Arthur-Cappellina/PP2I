@@ -1,0 +1,98 @@
+.sous-titre{
+    color: black;
+    justify-content: center;
+}
+
+.first{
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 450px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: black;
+}
+
+.submit {
+    margin-top: 20px !important;
+}
+h2 {
+    color: #333;
+    text-align: center;
+    font-size: 20px;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    color: black;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+}
+
+.legumes  {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 2px 5px #0004;
+    border-radius: 30px;
+    margin-left: 2.5%;
+    width: 20%;
+    justify-content: space-between;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.legumes-img {
+    height: 150px;
+}
+
+.legumes-img img {
+    width: 100%;
+    max-height: 100%;
+    border-radius: 30px 30px 0 0;
+}
+
+.a{
+    border-radius: 30px 30px 0 0;
+    height: 250px;
+    cursor: pointer;
+}
+
+.titre{
+    color: black;
+    text-align: center;
+}
+
+.legumes p{
+    color: black;
+    text-align: center;
+}
+
+.legumes button {
+    width: 250px;
+    padding: 5px;
+    background-color: white;
+    margin-top: 50px;
+}
+
+.periode{
+    color: black;
+}
+
+.img{
+    max-width: 100%;
+    max-height: 175px;
+    border-radius: inherit;
+}

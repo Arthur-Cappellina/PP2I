@@ -1,0 +1,48 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inscription_connexion.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %} Inscription {% endblock %}
+{% block content %}
+
+    <h3 class="section-title">Bienvenue sur potagix !</h3>
+    <p> Remplissez ce formulaire pour vous inscrire.</p>
+
+    {% if msg==6 %}
+        <div id="erreur">Veuillez rentrer un email.</div>
+    {% endif %}
+
+    {% if msg==2 %}
+        <div id="erreur">Ce pseudo est déjà pris.</div>
+    {% endif %}
+
+    {% if msg==3 %}
+        <div id="erreur">Le mot de passe doit posséder au moins 8 caractères.</div>
+    {% endif %}
+
+    {% if msg==4 %}
+        <div id="erreur">Cette adresse mail est déjà utilisée.</div>
+    {% endif %}
+
+    {% if msg==5 %}
+        <div id="erreur">L'adresse utilisée est introuvable.</div>
+    {% endif %}
+    
+    <form action="/inscription" method="post">
+        <div class="inner-form">
+            <input type="email" name="email" placeholder="Email">
+        </div>
+        <div class="inner-form">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="inner-form">
+            <input type="text" name="pseudo" placeholder="Pseudo">
+        </div>
+        <div class="inner-form">
+            <input type="text" name="adresse" placeholder="Adresse">
+        </div>
+        <input type="submit" value="S'inscrire" class="submit">
+    </form>
+
+{% endblock %}

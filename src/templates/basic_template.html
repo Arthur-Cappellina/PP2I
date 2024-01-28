@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potagix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="SHORTCUT ICON" href={{ url_for('static', filename='img/favicon.ico')}}>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div id="container">
+        <header>
+            <section class="header-top">
+                <div class="header-top-left">
+                    CAPPELLINA, MENTEC, PERNIN
+                </div>
+                <div class="header-top-right">
+                    {% if session|length == 0 or "connexion" not in session: %}
+                        <a href="/inscription" title="Home" class="gestion-compte-text">S'inscrire</a>
+                        <a href="/connexion" title="Home" class="gestion-compte-text">Se connecter</a>
+                    {% else: %}
+                        <a href="/mon-compte" title="Home" class="gestion-compte-text">Mon compte</a>
+                        <a href='/cagnotte' title="Home" class="gestion-compte-text">Ma cagnotte : {{session['connexion']['cagnotte']}} ducky</a>
+                        <a href='/panier' title='Home' class="gestion-compte-text">Mon panier</a>
+                    {% endif %}
+                </div>
+            </section>
+            <section class="header-middle">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo" class="not-responsive">
+            <h2>Potagix</h2>
+            </section> 
+            <nav class="navigation-bar">
+                <ul class="navigation-bar-menu not-responsive">
+                    <li>
+                        <a href="/accueil" title="Home" class="navigation-bar-menu-element {% block accueilCourant %}{% endblock %}">Accueil</a>
+                    </li>
+                    <li><a href="/map" title="Home" class="navigation-bar-menu-element {% block mapCourant %}{% endblock %}">Carte</a></li>
+                    <li><a href="/amap" title="Home" class="navigation-bar-menu-element {% block amap %}{% endblock %}">AMAP</a></li>
+                    <li><a href="/epicerie-virtuelle" title="Home" class="navigation-bar-menu-element {% block epicerie %}{% endblock %}">Épicerie virtuelle</a></li>
+                    <li><a href="/graine" title="Home" class="navigation-bar-menu-element {% block graines %}{% endblock %}">Graines à planter</a></li>
+                </ul>
+                <div class="navigation-responsive only-responsive">
+                    <span>Menu</span>
+                    <i class="mdi mdi-menu"></i>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="current-page-div">
+            <div class="current-page-div-front"></div>
+            <h3>{% block title %}{% endblock %}</h3>
+            </section>
+            {% block content %}{% endblock %}
+        </main> 
+        <footer>
+            <span class="footer-copyright">Copyright 2022</span>
+        </footer>
+    </div>
+</body>
+</html>

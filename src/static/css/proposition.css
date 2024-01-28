@@ -1,0 +1,99 @@
+form{
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 60%;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.submit {
+    width: 20%;
+    display: flex;
+    margin: auto;
+}
+
+.submit:hover{
+    color:burlywood;
+}
+
+.inner-form{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    height: 25px;
+    background: none;
+    padding: 0px 20px;
+    color: #222222;
+    font-size: 14px;
+    font-weight: normal;
+    width: max-content;
+}
+
+input[type=file]{
+    border: none;
+}
+
+input[type=number]{
+    width: 50px;
+    padding: 0;
+    text-align: center;
+    -moz-appearance:textfield;
+    -webkit-appearance: none;
+}
+
+.inner-form-dispo {
+    display: flex;
+    flex-direction: column;
+}
+
+.inner-form-dispo input{
+    width: 100%;
+}
+.inner-form label {
+    margin-right: 10px;
+    display: inline-block;
+    min-width: max-content;
+}
+
+textarea{
+    width: 90%;
+}
+
+
+h3{
+    color: black;
+    text-align: center;
+}
+
+h4{
+    color: black;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+.inner-form-dispo label{
+    margin-top: 10px;
+}
+
+.submit{
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+}

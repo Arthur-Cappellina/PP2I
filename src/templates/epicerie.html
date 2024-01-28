@@ -1,0 +1,51 @@
+{% extends "basic_template.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/epicerie.css') }}">
+{% endblock %}
+{% block epicerie %}navigation-bar-menu-element-current{% endblock %}
+{% block title %} Epicerie virtuelle {% endblock %}
+{% block content %}
+    {% if msg==1 %}
+        <div id="erreur">L'adresse utilisée est introuvable.</div>
+    {% endif %}
+    <h3 class="section-title">Trouver les produits proches de chez vous</h3>
+    <form action="/epicerie-virtuelle" method="post">
+        <form action="/epicerie-virtuelle" method="post">
+            <div class="form-inner">
+                <label for="adresse">Adresse :</label>
+                <input type="text" name="adresse">
+            </div>
+            
+            <div class="form-inner">
+                <label for="distance">Périmètre de recherche de produit (en km) :</label>
+                <input type="number" name="distance" min="1" max="100">
+            </div>
+            <input type="submit" value="Rechercher" class="submit">
+        </form>
+    <div class="elements">
+        {% for i in range(data| length) %}
+        <div class="around-element">
+                <a href="/produit/{{data[i][0][0]}}">
+                <div class="titreproduit" ><h1 class="home-inner-text home-inner-title">{{ data[i][0][7] }}</h1></div>
+                {% if path[i]|length == 0: %}
+                <div class="image-parent">
+                    <img src="/static/img/not-found.png" alt="" class="home-img">
+                </div>
+                {% endif %}
+                {% for j in path[i] %}
+                <div class="image-parent">
+                    <img src="{{url_for ('static', filename=j[0]) }}" alt="" class="home-img">
+                </div>
+                {% endfor %}
+                <div class="around-under">
+                    <p><span class="home-inner-text home-inner-type">Type de produit : </span> {{ data[i][0][1] }}</p>
+                    <p><span class="home-inner-text home-inner-type">Prix : </span> {{ data[i][0][2] }}</p>
+                    <p><span class="home-inner-text home-inner-type">Quantité : </span> {{ data[i][0][3] }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

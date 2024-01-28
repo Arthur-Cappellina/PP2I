@@ -1,0 +1,18 @@
+{% extends "basic_template.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ajout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %}Votre image de profil{% endblock %}
+{% block content %}
+<form action="/ajout", method="POST" enctype = "multipart/form-data">
+    <h2>Ajouter/Modifier votre image de profil</h2>
+    <div class="avatar">
+        <label for="avatar">Choisissez votre image de profil</label>
+        <input type="file" name = "file" id="file" required>
+    </div>
+    <div class="Btn">
+        <input type="submit" value="Envoyer !" class="submit">
+    </div>
+</form>
+{% endblock %}

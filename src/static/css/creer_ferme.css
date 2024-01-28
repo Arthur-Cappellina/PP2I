@@ -1,0 +1,24 @@
+p { text-align: center }
+a { text-align: center;
+    color: blue
+}
+h1 { text-align: center }
+h2 { text-align: center }
+label
+{
+	display: block;
+}
+
+#form {    
+    text-align: center;  
+}
+
+#erreur {
+    text-align: center;
+    color: red;
+}
+
+form  {
+    display: flex;
+    flex-direction: column;
+}

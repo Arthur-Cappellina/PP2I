@@ -1,0 +1,23 @@
+.descr{
+    margin-top: 20px;
+}
+
+.lien{
+    margin-top: 10px;
+}
+
+.amap {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+}
+
+.img {
+    width: 40%;
+    margin: 30px;
+}
+
+.img img {
+    width: max-content;
+}
